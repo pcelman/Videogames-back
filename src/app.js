@@ -42,7 +42,7 @@ server.use((err, req, res, next) => {
 });
 
 server.listen(3002, () => {
-  console.log("Server is running on port 3002");
+  console.log(`Server is running on port 3002`);
 });
 
 module.exports = server;
