@@ -10,7 +10,7 @@ require("./db.js");
 const server = express();
 
 const corsOptions = {
-  origin: ["http://127.0.0.1:5173", "https://my-videogame.vercel.app/"],
+  origin: ["http://127.0.0.1:5173", "https://my-videogame.vercel.app"],
   credentials: true,
 };
 
@@ -24,17 +24,17 @@ server.use(cookieParser());
 server.use(morgan("dev"));
 server.use("/", routes);
 
-server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://my-videogame.vercel.app"
-);
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
+// server.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "https://my-videogame.vercel.app"
+// );
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//   next();
+// });
 
 server.use((err, req, res, next) => {
   const status = err.status || 500;
