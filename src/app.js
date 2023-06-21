@@ -10,7 +10,7 @@ require("./db.js");
 const server = express();
 
 const corsOptions = {
-  origin: ["http://127.0.0.1:5173", "*"],
+  origin: ["http://127.0.0.1:5173", "https://my-videogame.vercel.app/"],
   credentials: true,
 };
 
@@ -25,7 +25,7 @@ server.use(morgan("dev"));
 server.use("/", routes);
 
 server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  // res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
