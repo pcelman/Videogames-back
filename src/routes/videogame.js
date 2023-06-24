@@ -17,7 +17,7 @@ router.get('/', async (req,res) =>{
         let videoName = await allGames.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
         videoName.length ? 
         res.status(200).send(videoName) :
-        res.status(200).send('otra cosa');
+        res.status(200).send('no results');
         // console.log(videoName)
     }else{
         res.status(200).send(allGames)
